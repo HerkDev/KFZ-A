@@ -1,0 +1,1570 @@
+[
+    {
+        "identifier":  "E",
+        "authorityNames":  [
+                               "Landespolizeidirektion Burgenland für Eisenstadt und Rust"
+                           ],
+        "region":  "Burgenland",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-BG",
+        "authorities":  [
+                            {
+                                "name":  "Landespolizeidirektion Burgenland für Eisenstadt und Rust",
+                                "authorityType":  "STATE_POLICE_DIRECTORATE"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "EU",
+        "authorityNames":  [
+                               "BH Eisenstadt"
+                           ],
+        "region":  "Burgenland",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-BG",
+        "authorities":  [
+                            {
+                                "name":  "BH Eisenstadt",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "GS",
+        "authorityNames":  [
+                               "BH Güssing"
+                           ],
+        "region":  "Burgenland",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-BG",
+        "authorities":  [
+                            {
+                                "name":  "BH Güssing",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "JE",
+        "authorityNames":  [
+                               "BH Jennersdorf"
+                           ],
+        "region":  "Burgenland",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-BG",
+        "authorities":  [
+                            {
+                                "name":  "BH Jennersdorf",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "MA",
+        "authorityNames":  [
+                               "BH Mattersburg"
+                           ],
+        "region":  "Burgenland",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-BG",
+        "authorities":  [
+                            {
+                                "name":  "BH Mattersburg",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "ND",
+        "authorityNames":  [
+                               "BH Neusiedl am See"
+                           ],
+        "region":  "Burgenland",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-BG",
+        "authorities":  [
+                            {
+                                "name":  "BH Neusiedl am See",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "OP",
+        "authorityNames":  [
+                               "BH Oberpullendorf"
+                           ],
+        "region":  "Burgenland",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-BG",
+        "authorities":  [
+                            {
+                                "name":  "BH Oberpullendorf",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "OW",
+        "authorityNames":  [
+                               "BH Oberwart"
+                           ],
+        "region":  "Burgenland",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-BG",
+        "authorities":  [
+                            {
+                                "name":  "BH Oberwart",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "FE",
+        "authorityNames":  [
+                               "BH Feldkirchen"
+                           ],
+        "region":  "Kärnten",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-K",
+        "authorities":  [
+                            {
+                                "name":  "BH Feldkirchen",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "HE",
+        "authorityNames":  [
+                               "BH Hermagor"
+                           ],
+        "region":  "Kärnten",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-K",
+        "authorities":  [
+                            {
+                                "name":  "BH Hermagor",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "K",
+        "authorityNames":  [
+                               "Landespolizeidirektion Kärnten für Klagenfurt am Wörthersee"
+                           ],
+        "region":  "Kärnten",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-K",
+        "authorities":  [
+                            {
+                                "name":  "Landespolizeidirektion Kärnten für Klagenfurt am Wörthersee",
+                                "authorityType":  "STATE_POLICE_DIRECTORATE"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "KL",
+        "authorityNames":  [
+                               "BH Klagenfurt"
+                           ],
+        "region":  "Kärnten",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-K",
+        "authorities":  [
+                            {
+                                "name":  "BH Klagenfurt",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "SP",
+        "authorityNames":  [
+                               "BH Spittal an der Drau"
+                           ],
+        "region":  "Kärnten",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-K",
+        "authorities":  [
+                            {
+                                "name":  "BH Spittal an der Drau",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "SV",
+        "authorityNames":  [
+                               "BH St. Veit an der Glan"
+                           ],
+        "region":  "Kärnten",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-K",
+        "authorities":  [
+                            {
+                                "name":  "BH St. Veit an der Glan",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "VI",
+        "authorityNames":  [
+                               "Landespolizeidirektion Kärnten für Villach"
+                           ],
+        "region":  "Kärnten",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-K",
+        "authorities":  [
+                            {
+                                "name":  "Landespolizeidirektion Kärnten für Villach",
+                                "authorityType":  "STATE_POLICE_DIRECTORATE"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "VK",
+        "authorityNames":  [
+                               "BH Völkermarkt"
+                           ],
+        "region":  "Kärnten",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-K",
+        "authorities":  [
+                            {
+                                "name":  "BH Völkermarkt",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "VL",
+        "authorityNames":  [
+                               "BH Villach"
+                           ],
+        "region":  "Kärnten",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-K",
+        "authorities":  [
+                            {
+                                "name":  "BH Villach",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "WO",
+        "authorityNames":  [
+                               "BH Wolfsberg"
+                           ],
+        "region":  "Kärnten",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-K",
+        "authorities":  [
+                            {
+                                "name":  "BH Wolfsberg",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "AM",
+        "authorityNames":  [
+                               "BH Amstetten"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Amstetten",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "BL",
+        "authorityNames":  [
+                               "BH Bruck an der Leitha"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Bruck an der Leitha",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "BN",
+        "authorityNames":  [
+                               "BH Baden"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Baden",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "GD",
+        "authorityNames":  [
+                               "BH Gmünd"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Gmünd",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "GF",
+        "authorityNames":  [
+                               "BH Gänserndorf"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Gänserndorf",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "HL",
+        "authorityNames":  [
+                               "BH Hollabrunn"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Hollabrunn",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "HO",
+        "authorityNames":  [
+                               "BH Horn"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Horn",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "KG",
+        "authorityNames":  [
+                               "BH Tulln, Außenstelle Klosterneuburg"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Tulln, Außenstelle Klosterneuburg",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "KO",
+        "authorityNames":  [
+                               "BH Korneuburg"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Korneuburg",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "KR",
+        "authorityNames":  [
+                               "BH Krems an der Donau"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Krems an der Donau",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "KS",
+        "authorityNames":  [
+                               "Magistrat Krems an der Donau"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "Magistrat Krems an der Donau",
+                                "authorityType":  "MAGISTRATE"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "LF",
+        "authorityNames":  [
+                               "BH Lilienfeld"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Lilienfeld",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "MD",
+        "authorityNames":  [
+                               "BH Mödling"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Mödling",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "ME",
+        "authorityNames":  [
+                               "BH Melk"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Melk",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "MI",
+        "authorityNames":  [
+                               "BH Mistelbach"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Mistelbach",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "NK",
+        "authorityNames":  [
+                               "BH Neunkirchen"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Neunkirchen",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "P",
+        "authorityNames":  [
+                               "Landespolizeidirektion Niederösterreich für St. Pölten"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "Landespolizeidirektion Niederösterreich für St. Pölten",
+                                "authorityType":  "STATE_POLICE_DIRECTORATE"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "PL",
+        "authorityNames":  [
+                               "BH St. Pölten"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH St. Pölten",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "SB",
+        "authorityNames":  [
+                               "BH Scheibbs"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Scheibbs",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "SW",
+        "authorityNames":  [
+                               "Landespolizeidirektion Niederösterreich für Schwechat und definierte Teile des Flughafens Wien-Schwechat"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "Landespolizeidirektion Niederösterreich für Schwechat und definierte Teile des Flughafens Wien-Schwechat",
+                                "authorityType":  "STATE_POLICE_DIRECTORATE"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "TU",
+        "authorityNames":  [
+                               "BH Tulln"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Tulln",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "WB",
+        "authorityNames":  [
+                               "BH Wiener Neustadt"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Wiener Neustadt",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "WN",
+        "authorityNames":  [
+                               "Landespolizeidirektion Niederösterreich für Wiener Neustadt"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "Landespolizeidirektion Niederösterreich für Wiener Neustadt",
+                                "authorityType":  "STATE_POLICE_DIRECTORATE"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "WT",
+        "authorityNames":  [
+                               "BH Waidhofen an der Thaya"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Waidhofen an der Thaya",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "WY",
+        "authorityNames":  [
+                               "Magistrat Waidhofen an der Ybbs"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "Magistrat Waidhofen an der Ybbs",
+                                "authorityType":  "MAGISTRATE"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "ZT",
+        "authorityNames":  [
+                               "BH Zwettl"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-N",
+        "authorities":  [
+                            {
+                                "name":  "BH Zwettl",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "BR",
+        "authorityNames":  [
+                               "BH Braunau am Inn"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "BH Braunau am Inn",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "EF",
+        "authorityNames":  [
+                               "BH Eferding"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "BH Eferding",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "FR",
+        "authorityNames":  [
+                               "BH Freistadt"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "BH Freistadt",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "GM",
+        "authorityNames":  [
+                               "BH Gmunden"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "BH Gmunden",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "GR",
+        "authorityNames":  [
+                               "BH Grieskirchen"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "BH Grieskirchen",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "KI",
+        "authorityNames":  [
+                               "BH Kirchdorf an der Krems"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "BH Kirchdorf an der Krems",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "L",
+        "authorityNames":  [
+                               "Landespolizeidirektion Oberösterreich für Linz"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "Landespolizeidirektion Oberösterreich für Linz",
+                                "authorityType":  "STATE_POLICE_DIRECTORATE"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "LL",
+        "authorityNames":  [
+                               "BH Linz-Land"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "BH Linz-Land",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "PE",
+        "authorityNames":  [
+                               "BH Perg"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "BH Perg",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "RI",
+        "authorityNames":  [
+                               "BH Ried im Innkreis"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "BH Ried im Innkreis",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "RO",
+        "authorityNames":  [
+                               "BH Rohrbach im Mühlkreis"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "BH Rohrbach im Mühlkreis",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "SD",
+        "authorityNames":  [
+                               "BH Schärding"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "BH Schärding",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "SE",
+        "authorityNames":  [
+                               "BH Steyr-Land"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "BH Steyr-Land",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "SR",
+        "authorityNames":  [
+                               "Landespolizeidirektion Oberösterreich für Steyr"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "Landespolizeidirektion Oberösterreich für Steyr",
+                                "authorityType":  "STATE_POLICE_DIRECTORATE"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "UU",
+        "authorityNames":  [
+                               "BH Urfahr-Umgebung"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "BH Urfahr-Umgebung",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "VB",
+        "authorityNames":  [
+                               "BH Vöcklabruck"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "BH Vöcklabruck",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "WE",
+        "authorityNames":  [
+                               "Landespolizeidirektion Oberösterreich für Wels"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "Landespolizeidirektion Oberösterreich für Wels",
+                                "authorityType":  "STATE_POLICE_DIRECTORATE"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "WL",
+        "authorityNames":  [
+                               "BH Wels"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-O",
+        "authorities":  [
+                            {
+                                "name":  "BH Wels",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "HA",
+        "authorityNames":  [
+                               "BH Hallein"
+                           ],
+        "region":  "Salzburg",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-S",
+        "authorities":  [
+                            {
+                                "name":  "BH Hallein",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "JO",
+        "authorityNames":  [
+                               "BH St. Johann"
+                           ],
+        "region":  "Salzburg",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-S",
+        "authorities":  [
+                            {
+                                "name":  "BH St. Johann",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "S",
+        "authorityNames":  [
+                               "Landespolizeidirektion Salzburg für Salzburg"
+                           ],
+        "region":  "Salzburg",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-S",
+        "authorities":  [
+                            {
+                                "name":  "Landespolizeidirektion Salzburg für Salzburg",
+                                "authorityType":  "STATE_POLICE_DIRECTORATE"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "SL",
+        "authorityNames":  [
+                               "BH Salzburg-Umgebung"
+                           ],
+        "region":  "Salzburg",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-S",
+        "authorities":  [
+                            {
+                                "name":  "BH Salzburg-Umgebung",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "TA",
+        "authorityNames":  [
+                               "BH Tamsweg"
+                           ],
+        "region":  "Salzburg",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-S",
+        "authorities":  [
+                            {
+                                "name":  "BH Tamsweg",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "ZE",
+        "authorityNames":  [
+                               "BH Zell am See"
+                           ],
+        "region":  "Salzburg",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-S",
+        "authorities":  [
+                            {
+                                "name":  "BH Zell am See",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "BA",
+        "authorityNames":  [
+                               "BH Liezen, Außenstelle Bad Aussee"
+                           ],
+        "region":  "Steiermark",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-ST",
+        "authorities":  [
+                            {
+                                "name":  "BH Liezen, Außenstelle Bad Aussee",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "BM",
+        "authorityNames":  [
+                               "BH Bruck-Mürzzuschlag"
+                           ],
+        "region":  "Steiermark",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-ST",
+        "authorities":  [
+                            {
+                                "name":  "BH Bruck-Mürzzuschlag",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "DL",
+        "authorityNames":  [
+                               "BH Deutschlandsberg"
+                           ],
+        "region":  "Steiermark",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-ST",
+        "authorities":  [
+                            {
+                                "name":  "BH Deutschlandsberg",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "G",
+        "authorityNames":  [
+                               "Landespolizeidirektion Steiermark für Graz"
+                           ],
+        "region":  "Steiermark",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-ST",
+        "authorities":  [
+                            {
+                                "name":  "Landespolizeidirektion Steiermark für Graz",
+                                "authorityType":  "STATE_POLICE_DIRECTORATE"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "GB",
+        "authorityNames":  [
+                               "Expositur Gröbming"
+                           ],
+        "region":  "Steiermark",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-ST",
+        "authorities":  [
+                            {
+                                "name":  "Expositur Gröbming",
+                                "authorityType":  "EXPOSITURE"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "GU",
+        "authorityNames":  [
+                               "BH Graz-Umgebung"
+                           ],
+        "region":  "Steiermark",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-ST",
+        "authorities":  [
+                            {
+                                "name":  "BH Graz-Umgebung",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "HF",
+        "authorityNames":  [
+                               "BH Hartberg-Fürstenfeld"
+                           ],
+        "region":  "Steiermark",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-ST",
+        "authorities":  [
+                            {
+                                "name":  "BH Hartberg-Fürstenfeld",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "LB",
+        "authorityNames":  [
+                               "BH Leibnitz"
+                           ],
+        "region":  "Steiermark",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-ST",
+        "authorities":  [
+                            {
+                                "name":  "BH Leibnitz",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "LE",
+        "authorityNames":  [
+                               "Landespolizeidirektion Steiermark für Leoben"
+                           ],
+        "region":  "Steiermark",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-ST",
+        "authorities":  [
+                            {
+                                "name":  "Landespolizeidirektion Steiermark für Leoben",
+                                "authorityType":  "STATE_POLICE_DIRECTORATE"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "LI",
+        "authorityNames":  [
+                               "BH Liezen"
+                           ],
+        "region":  "Steiermark",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-ST",
+        "authorities":  [
+                            {
+                                "name":  "BH Liezen",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "LN",
+        "authorityNames":  [
+                               "BH Leoben"
+                           ],
+        "region":  "Steiermark",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-ST",
+        "authorities":  [
+                            {
+                                "name":  "BH Leoben",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "MT",
+        "authorityNames":  [
+                               "BH Murtal"
+                           ],
+        "region":  "Steiermark",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-ST",
+        "authorities":  [
+                            {
+                                "name":  "BH Murtal",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "MU",
+        "authorityNames":  [
+                               "BH Murau"
+                           ],
+        "region":  "Steiermark",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-ST",
+        "authorities":  [
+                            {
+                                "name":  "BH Murau",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "SO",
+        "authorityNames":  [
+                               "BH Südoststeiermark"
+                           ],
+        "region":  "Steiermark",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-ST",
+        "authorities":  [
+                            {
+                                "name":  "BH Südoststeiermark",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "VO",
+        "authorityNames":  [
+                               "BH Voitsberg"
+                           ],
+        "region":  "Steiermark",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-ST",
+        "authorities":  [
+                            {
+                                "name":  "BH Voitsberg",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "WZ",
+        "authorityNames":  [
+                               "BH Weiz"
+                           ],
+        "region":  "Steiermark",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-ST",
+        "authorities":  [
+                            {
+                                "name":  "BH Weiz",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "I",
+        "authorityNames":  [
+                               "Landespolizeidirektion Tirol für Innsbruck"
+                           ],
+        "region":  "Tirol",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-T",
+        "authorities":  [
+                            {
+                                "name":  "Landespolizeidirektion Tirol für Innsbruck",
+                                "authorityType":  "STATE_POLICE_DIRECTORATE"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "IL",
+        "authorityNames":  [
+                               "BH Innsbruck"
+                           ],
+        "region":  "Tirol",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-T",
+        "authorities":  [
+                            {
+                                "name":  "BH Innsbruck",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "IM",
+        "authorityNames":  [
+                               "BH Imst"
+                           ],
+        "region":  "Tirol",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-T",
+        "authorities":  [
+                            {
+                                "name":  "BH Imst",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "KB",
+        "authorityNames":  [
+                               "BH Kitzbühel"
+                           ],
+        "region":  "Tirol",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-T",
+        "authorities":  [
+                            {
+                                "name":  "BH Kitzbühel",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "KU",
+        "authorityNames":  [
+                               "BH Kufstein"
+                           ],
+        "region":  "Tirol",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-T",
+        "authorities":  [
+                            {
+                                "name":  "BH Kufstein",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "LA",
+        "authorityNames":  [
+                               "BH Landeck"
+                           ],
+        "region":  "Tirol",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-T",
+        "authorities":  [
+                            {
+                                "name":  "BH Landeck",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "LZ",
+        "authorityNames":  [
+                               "BH Lienz"
+                           ],
+        "region":  "Tirol",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-T",
+        "authorities":  [
+                            {
+                                "name":  "BH Lienz",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "RE",
+        "authorityNames":  [
+                               "BH Reutte"
+                           ],
+        "region":  "Tirol",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-T",
+        "authorities":  [
+                            {
+                                "name":  "BH Reutte",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "SZ",
+        "authorityNames":  [
+                               "BH Schwaz"
+                           ],
+        "region":  "Tirol",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-T",
+        "authorities":  [
+                            {
+                                "name":  "BH Schwaz",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "B",
+        "authorityNames":  [
+                               "BH Bregenz"
+                           ],
+        "region":  "Vorarlberg",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-V",
+        "authorities":  [
+                            {
+                                "name":  "BH Bregenz",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "BZ",
+        "authorityNames":  [
+                               "BH Bludenz"
+                           ],
+        "region":  "Vorarlberg",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-V",
+        "authorities":  [
+                            {
+                                "name":  "BH Bludenz",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "DO",
+        "authorityNames":  [
+                               "BH Dornbirn"
+                           ],
+        "region":  "Vorarlberg",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-V",
+        "authorities":  [
+                            {
+                                "name":  "BH Dornbirn",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "FK",
+        "authorityNames":  [
+                               "BH Feldkirch"
+                           ],
+        "region":  "Vorarlberg",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-V",
+        "authorities":  [
+                            {
+                                "name":  "BH Feldkirch",
+                                "authorityType":  "DISTRICT_AUTHORITY"
+                            }
+                        ]
+    },
+    {
+        "identifier":  "W",
+        "authorityNames":  [
+                               "Landespolizeidirektion Wien"
+                           ],
+        "region":  "Wien",
+        "type":  "GEOGRAPHICAL",
+        "status":  "ACTIVE",
+        "source":  "AT-W",
+        "authorities":  [
+                            {
+                                "name":  "Landespolizeidirektion Wien",
+                                "authorityType":  "STATE_POLICE_DIRECTORATE"
+                            }
+                        ]
+    }
+]

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KFZ-A</string>
+    <string name="header_label">KFZ</string>
+    <string name="application_name">KFZ-A</string>
+    <string name="license_plate_input">Kennzeichen eingeben</string>
+    <string name="result_type">Typ</string>
+    <string name="geographical_type">Bezirk / Behörde</string>
+    <string name="authority_type">Typ</string>
+    <string name="finance_administration_type">Typ</string>
+    <string name="constitutional_court_type">Typ</string>
+    <string name="authority_series_type">Typ</string>
+    <string name="defence_type">Typ</string>
+    <string name="diplomatic_type">Typ</string>
+    <string name="diplomatic_regional_type">Diplomatisches Kennzeichen</string>
+    <string name="consular_regional_type">Konsularisches Kennzeichen</string>
+    <string name="diplomatic_vehicle_mark_type">Zeichen CD</string>
+    <string name="consular_vehicle_mark_type">Zeichen CC</string>
+    <string name="result_authority">Bezirk / Behörde</string>
+    <string name="result_authority_value">—</string>
+    <string name="result_state">Bundesland</string>
+    <string name="no_result">Kein Treffer</string>
+    <string name="no_result_value">—</string>
+    <string name="authority_type_district_authority">Bezirkshauptmannschaft</string>
+    <string name="authority_type_state_police_directorate">Landespolizeidirektion</string>
+    <string name="authority_type_magistrate">Magistrat</string>
+    <string name="authority_type_expositure">Expositur</string>
+    <string name="authority_type_federal_organ">Bundesorgan</string>
+    <string name="authority_type_state_organ">Landesorgan</string>
+    <string name="authority_type_federal_subject_area">Sachbereich</string>
+    <string name="information_title">Information</string>
+    <string name="developer_label">Entwickler</string>
+    <string name="developer_name">HerkDev</string>
+    <string name="information_version_label">Version</string>
+    <string name="information_version_value">1.0</string>
+    <string name="information_data_status_label">Datenstand</string>
+    <string name="information_data_status_value">08.2026</string>
+    <string name="legal_notice">Alle Angaben ohne Gewähr.</string>
+    <string name="information_open_source_label">Open Source</string>
+    <string name="information_license_name">MIT License</string>
+    <string name="information_third_party_notices">Third-Party Notices</string>
+    <string name="data_status">Datenstand 08.2026</string>
+    <string name="menu_content_description">Menü öffnen</string>
+    <string name="back_content_description">Zurück</string>
+    <string name="search_content_description">Suche</string>
+</resources>
+
+
+
+
+
+
+

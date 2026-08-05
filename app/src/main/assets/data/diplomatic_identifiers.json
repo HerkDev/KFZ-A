@@ -1,0 +1,222 @@
+[
+    {
+        "identifier":  "BD",
+        "authorityNames":  [
+                               "Diplomatisches Personal / gleichgestellte internationale Organisationen, Burgenland"
+                           ],
+        "region":  "Burgenland",
+        "type":  "DIPLOMATIC_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "KD",
+        "authorityNames":  [
+                               "Diplomatisches Personal / gleichgestellte internationale Organisationen, Kärnten"
+                           ],
+        "region":  "Kärnten",
+        "type":  "DIPLOMATIC_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "ND",
+        "authorityNames":  [
+                               "Diplomatisches Personal / gleichgestellte internationale Organisationen, Niederösterreich"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "DIPLOMATIC_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "OD",
+        "authorityNames":  [
+                               "Diplomatisches Personal / gleichgestellte internationale Organisationen, Oberösterreich"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "DIPLOMATIC_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "SD",
+        "authorityNames":  [
+                               "Diplomatisches Personal / gleichgestellte internationale Organisationen, Salzburg"
+                           ],
+        "region":  "Salzburg",
+        "type":  "DIPLOMATIC_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "STD",
+        "authorityNames":  [
+                               "Diplomatisches Personal / gleichgestellte internationale Organisationen, Steiermark"
+                           ],
+        "region":  "Steiermark",
+        "type":  "DIPLOMATIC_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "TD",
+        "authorityNames":  [
+                               "Diplomatisches Personal / gleichgestellte internationale Organisationen, Tirol"
+                           ],
+        "region":  "Tirol",
+        "type":  "DIPLOMATIC_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "VD",
+        "authorityNames":  [
+                               "Diplomatisches Personal / gleichgestellte internationale Organisationen, Vorarlberg"
+                           ],
+        "region":  "Vorarlberg",
+        "type":  "DIPLOMATIC_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "WD",
+        "authorityNames":  [
+                               "Diplomatisches Personal / gleichgestellte internationale Organisationen, Wien"
+                           ],
+        "region":  "Wien",
+        "type":  "DIPLOMATIC_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "GD",
+        "authorityNames":  [
+                               "Diplomatisches Personal / gleichgestellte internationale Organisationen, Graz"
+                           ],
+        "region":  "Graz",
+        "type":  "DIPLOMATIC_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "BK",
+        "authorityNames":  [
+                               "Konsularkorps, Burgenland"
+                           ],
+        "region":  "Burgenland",
+        "type":  "CONSULAR_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "KK",
+        "authorityNames":  [
+                               "Konsularkorps, Kärnten"
+                           ],
+        "region":  "Kärnten",
+        "type":  "CONSULAR_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "NK",
+        "authorityNames":  [
+                               "Konsularkorps, Niederösterreich"
+                           ],
+        "region":  "Niederösterreich",
+        "type":  "CONSULAR_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "OK",
+        "authorityNames":  [
+                               "Konsularkorps, Oberösterreich"
+                           ],
+        "region":  "Oberösterreich",
+        "type":  "CONSULAR_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "SK",
+        "authorityNames":  [
+                               "Konsularkorps, Salzburg"
+                           ],
+        "region":  "Salzburg",
+        "type":  "CONSULAR_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "STK",
+        "authorityNames":  [
+                               "Konsularkorps, Steiermark"
+                           ],
+        "region":  "Steiermark",
+        "type":  "CONSULAR_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "TK",
+        "authorityNames":  [
+                               "Konsularkorps, Tirol"
+                           ],
+        "region":  "Tirol",
+        "type":  "CONSULAR_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "VK",
+        "authorityNames":  [
+                               "Konsularkorps, Vorarlberg"
+                           ],
+        "region":  "Vorarlberg",
+        "type":  "CONSULAR_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "WK",
+        "authorityNames":  [
+                               "Konsularkorps, Wien"
+                           ],
+        "region":  "Wien",
+        "type":  "CONSULAR_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "GK",
+        "authorityNames":  [
+                               "Konsularkorps, Graz"
+                           ],
+        "region":  "Graz",
+        "type":  "CONSULAR_REGIONAL_SERIES",
+        "status":  "ACTIVE",
+        "source":  "KDV-26-5"
+    },
+    {
+        "identifier":  "CD",
+        "authorityNames":  [
+                               "corps diplomatique"
+                           ],
+        "region":  "Österreich",
+        "type":  "DIPLOMATIC_VEHICLE_MARK",
+        "status":  "ACTIVE",
+        "source":  "KFG-54-3c"
+    },
+    {
+        "identifier":  "CC",
+        "authorityNames":  [
+                               "corps consulaire"
+                           ],
+        "region":  "Österreich",
+        "type":  "CONSULAR_VEHICLE_MARK",
+        "status":  "ACTIVE",
+        "source":  "KFG-54-3c"
+    }
+]

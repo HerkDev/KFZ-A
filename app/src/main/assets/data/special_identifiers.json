@@ -1,0 +1,138 @@
+[
+  {
+    "identifier": "A",
+    "authorityNames": ["Oberste Bundesorgane"],
+    "region": "Österreich",
+    "type": "FEDERAL_ORGAN",
+    "status": "ACTIVE",
+    "source": "KDV-26-2"
+  },
+  {
+    "identifier": "B",
+    "authorityNames": ["Landesorgane Burgenland"],
+    "region": "Burgenland",
+    "type": "STATE_ORGAN",
+    "status": "ACTIVE",
+    "source": "KDV-26-3"
+  },
+  {
+    "identifier": "K",
+    "authorityNames": ["Landesorgane Kärnten"],
+    "region": "Kärnten",
+    "type": "STATE_ORGAN",
+    "status": "ACTIVE",
+    "source": "KDV-26-3"
+  },
+  {
+    "identifier": "N",
+    "authorityNames": ["Landesorgane Niederösterreich"],
+    "region": "Niederösterreich",
+    "type": "STATE_ORGAN",
+    "status": "ACTIVE",
+    "source": "KDV-26-3"
+  },
+  {
+    "identifier": "O",
+    "authorityNames": ["Landesorgane Oberösterreich"],
+    "region": "Oberösterreich",
+    "type": "STATE_ORGAN",
+    "status": "ACTIVE",
+    "source": "KDV-26-3"
+  },
+  {
+    "identifier": "S",
+    "authorityNames": ["Landesorgane Salzburg"],
+    "region": "Salzburg",
+    "type": "STATE_ORGAN",
+    "status": "ACTIVE",
+    "source": "KDV-26-3"
+  },
+  {
+    "identifier": "ST",
+    "authorityNames": ["Landesorgane Steiermark"],
+    "region": "Steiermark",
+    "type": "STATE_ORGAN",
+    "status": "ACTIVE",
+    "source": "KDV-26-3"
+  },
+  {
+    "identifier": "T",
+    "authorityNames": ["Landesorgane Tirol"],
+    "region": "Tirol",
+    "type": "STATE_ORGAN",
+    "status": "ACTIVE",
+    "source": "KDV-26-3"
+  },
+  {
+    "identifier": "V",
+    "authorityNames": ["Landesorgane Vorarlberg"],
+    "region": "Vorarlberg",
+    "type": "STATE_ORGAN",
+    "status": "ACTIVE",
+    "source": "KDV-26-3"
+  },
+  {
+    "identifier": "W",
+    "authorityNames": ["Landesorgane Wien"],
+    "region": "Wien",
+    "type": "STATE_ORGAN",
+    "status": "ACTIVE",
+    "source": "KDV-26-3"
+  },
+  {
+    "identifier": "BD",
+    "authorityNames": ["Bundesbusdienst"],
+    "region": "Österreich",
+    "type": "FEDERAL_SUBJECT_AREA",
+    "status": "ACTIVE",
+    "source": "KDV-26-4"
+  },
+  {
+    "identifier": "BH",
+    "authorityNames": ["Bundesheer"],
+    "region": "Österreich",
+    "type": "FEDERAL_SUBJECT_AREA",
+    "status": "ACTIVE",
+    "source": "KDV-26-4"
+  },
+  {
+    "identifier": "BP",
+    "authorityNames": ["Bundespolizei"],
+    "region": "Österreich",
+    "type": "FEDERAL_SUBJECT_AREA",
+    "status": "ACTIVE",
+    "source": "KDV-26-4"
+  },
+  {
+    "identifier": "FV",
+    "authorityNames": ["Finanzverwaltung"],
+    "region": "Österreich",
+    "type": "FEDERAL_SUBJECT_AREA",
+    "status": "ACTIVE",
+    "source": "KDV-26-4"
+  },
+  {
+    "identifier": "FW",
+    "authorityNames": ["Feuerwehr"],
+    "region": "Österreich",
+    "type": "FEDERAL_SUBJECT_AREA",
+    "status": "ACTIVE",
+    "source": "KDV-26-4"
+  },
+  {
+    "identifier": "JW",
+    "authorityNames": ["Justizwache"],
+    "region": "Österreich",
+    "type": "FEDERAL_SUBJECT_AREA",
+    "status": "ACTIVE",
+    "source": "KDV-26-4"
+  },
+  {
+    "identifier": "PT",
+    "authorityNames": ["Post"],
+    "region": "Österreich",
+    "type": "FEDERAL_SUBJECT_AREA",
+    "status": "ACTIVE",
+    "source": "KDV-26-4"
+  }
+]
