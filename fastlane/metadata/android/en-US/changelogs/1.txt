@@ -1,0 +1,7 @@
+Initial public release.
+
+• Offline lookup of Austrian registration identifiers
+• Geographical, authority, diplomatic and consular identifiers
+• Support for multiple official meanings
+• No advertising
+• No tracking
