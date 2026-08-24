@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.KFZA" parent="android:Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/kfza_dark_window_background</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+</resources>

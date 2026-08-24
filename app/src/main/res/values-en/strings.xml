@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KFZ-A</string>
+    <string name="header_label">KFZ</string>
+    <string name="application_name">KFZ-A</string>
+    <string name="license_plate_input">Enter registration identifier</string>
+    <string name="result_type">Type</string>
+    <string name="geographical_type">District / Authority</string>
+    <string name="authority_type">Type</string>
+    <string name="finance_administration_type">Type</string>
+    <string name="constitutional_court_type">Type</string>
+    <string name="authority_series_type">Type</string>
+    <string name="defence_type">Type</string>
+    <string name="diplomatic_type">Type</string>
+    <string name="diplomatic_regional_type">Diplomatic registration identifier</string>
+    <string name="consular_regional_type">Consular registration identifier</string>
+    <string name="diplomatic_vehicle_mark_type">CD mark</string>
+    <string name="consular_vehicle_mark_type">CC mark</string>
+    <string name="result_authority">District / Authority</string>
+    <string name="result_authority_value">—</string>
+    <string name="result_state">Federal state</string>
+    <string name="no_result">No match</string>
+    <string name="no_result_value">—</string>
+    <string name="authority_type_district_authority">District Authority</string>
+    <string name="authority_type_state_police_directorate">State Police Directorate</string>
+    <string name="authority_type_magistrate">Magistrate</string>
+    <string name="authority_type_expositure">Expositure</string>
+    <string name="authority_type_federal_organ">Federal body</string>
+    <string name="authority_type_state_organ">State body</string>
+    <string name="authority_type_federal_subject_area">Subject area</string>
+    <string name="information_title">Information</string>
+    <string name="developer_label">Developer</string>
+    <string name="developer_name">HerkDev</string>
+    <string name="information_version_label">Version</string>
+    <string name="information_data_status_label">Data status</string>
+    <string name="information_data_status_value">08.2026</string>
+    <string name="legal_notice">Information provided without guarantee.</string>
+    <string name="information_open_source_label">Open Source</string>
+    <string name="information_license_name">MIT License</string>
+    <string name="information_third_party_notices">Third-Party Notices</string>
+    <string name="data_status">Data status 08.2026</string>
+    <string name="menu_content_description">Open menu</string>
+    <string name="back_content_description">Back</string>
+    <string name="search_content_description">Search</string>
+</resources>

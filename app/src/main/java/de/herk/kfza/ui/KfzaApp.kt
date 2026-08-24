@@ -1,8 +1,10 @@
 package de.herk.kfza.ui
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.background
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -43,7 +45,6 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
@@ -67,14 +68,6 @@ import de.herk.kfza.data.matcher.IdentifierMatcher
 import de.herk.kfza.data.matcher.IdentifierNormalizer
 import de.herk.kfza.data.repository.GeographicalPlateRepository
 import de.herk.kfza.data.repository.InMemoryPlateRepository
-import de.herk.kfza.ui.theme.KfzaBackground
-import de.herk.kfza.ui.theme.KfzaDivider
-import de.herk.kfza.ui.theme.KfzaCardBackground
-import de.herk.kfza.ui.theme.KfzaInputBorder
-import de.herk.kfza.ui.theme.KfzaInputFocusedBorder
-import de.herk.kfza.ui.theme.KfzaPrimaryText
-import de.herk.kfza.ui.theme.KfzaSecondaryText
-import de.herk.kfza.ui.theme.KfzaTopBar
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.input.ImeAction
@@ -84,9 +77,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.shape.RoundedCornerShape
 
-private val TopBarBlue = KfzaTopBar
-private val ScreenBackground = KfzaBackground
 private val MainContentShape = RoundedCornerShape(12.dp)
+
+private enum class OfflineDocument(val titleRes: Int, val assetName: String) {
+    MIT_LICENSE(R.string.information_license_name, "LICENSE"),
+    THIRD_PARTY_NOTICES(R.string.information_third_party_notices, "THIRD_PARTY_NOTICES.md")
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -101,6 +97,7 @@ fun KfzaApp() {
     val focusRequester = remember { FocusRequester() }
     var inputBoundsInRoot by remember { mutableStateOf<Rect?>(null) }
     var scaffoldOriginInRoot by remember { mutableStateOf(Offset.Zero) }
+    var openDocument by remember { mutableStateOf<OfflineDocument?>(null) }
     LaunchedEffect(Unit) {
         if (query.isEmpty()) {
             withFrameNanos { }
@@ -111,8 +108,27 @@ fun KfzaApp() {
     var showInformation by remember { mutableStateOf(false) }
     val menuDescription = stringResource(R.string.menu_content_description)
 
+    BackHandler(enabled = showInformation || openDocument != null) {
+        if (openDocument != null) {
+            openDocument = null
+        } else {
+            showInformation = false
+        }
+    }
+
+    if (openDocument != null) {
+        OfflineDocumentScreen(
+            document = openDocument!!,
+            onBack = { openDocument = null }
+        )
+        return
+    }
+
     if (showInformation) {
-        InformationScreen(onBack = { showInformation = false })
+        InformationScreen(
+            onBack = { showInformation = false },
+            onDocumentOpen = { openDocument = it }
+        )
         return
     }
 
@@ -147,14 +163,14 @@ fun KfzaApp() {
                     }
                 }
             },
-        containerColor = ScreenBackground,
+        containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .statusBarsPadding()
                     .height(56.dp)
-                    .background(TopBarBlue)
+                    .background(MaterialTheme.colorScheme.primaryContainer)
             ) {
                 Box(
                     modifier = Modifier
@@ -166,7 +182,7 @@ fun KfzaApp() {
                     Text(
                         text = stringResource(R.string.header_label),
                         fontWeight = FontWeight.SemiBold,
-                        color = Color.White,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer,
                         modifier = Modifier.align(androidx.compose.ui.Alignment.CenterStart)
                     )
                 }
@@ -214,25 +230,16 @@ fun KfzaApp() {
                     text = stringResource(R.string.license_plate_input),
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Medium,
-                    color = KfzaPrimaryText,
+                    color = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.padding(top = 2.dp)
                 )
                 Spacer(modifier = Modifier.height(6.dp))
                 OutlinedTextField(
                     value = query,
                     onValueChange = { value ->
-                        val candidate = value.uppercase()
-                        val normalizedCandidate = IdentifierNormalizer.normalize(candidate)
-                        val normalizedQuery = IdentifierNormalizer.normalize(query)
-                        val canEdit = if (normalizedCandidate.length <= normalizedQuery.length) {
-                            matcher.canAcceptInput(candidate)
-                        } else {
-                            matcher.canAcceptNextCharacter(query, candidate)
-                        }
-                        if (canEdit) {
-                            query = candidate
-                            result = repository.findByIdentifier(candidate)
-                        }
+                        val candidate = IdentifierNormalizer.uppercaseForDisplay(value)
+                        query = candidate
+                        result = repository.findByIdentifier(candidate)
                     },
                     modifier = Modifier
                         .fillMaxWidth()
@@ -244,19 +251,19 @@ fun KfzaApp() {
                     trailingIcon = { SearchIcon() },
                     textStyle = MaterialTheme.typography.bodyLarge.copy(
                         fontSize = 18.sp,
-                        color = KfzaPrimaryText,
+                        color = MaterialTheme.colorScheme.onSurface,
                         fontWeight = FontWeight.SemiBold
                     ),
                     colors = OutlinedTextFieldDefaults.colors(
-                        focusedTextColor = KfzaPrimaryText,
-                        unfocusedTextColor = KfzaPrimaryText,
-                        focusedLabelColor = KfzaPrimaryText,
-                        unfocusedLabelColor = KfzaPrimaryText,
-                        cursorColor = KfzaInputFocusedBorder,
-                        focusedBorderColor = KfzaInputFocusedBorder,
-                        unfocusedBorderColor = KfzaInputBorder,
-                        focusedContainerColor = KfzaCardBackground,
-                        unfocusedContainerColor = KfzaCardBackground
+                        focusedTextColor = MaterialTheme.colorScheme.onSurface,
+                        unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
+                        focusedLabelColor = MaterialTheme.colorScheme.onSurface,
+                        unfocusedLabelColor = MaterialTheme.colorScheme.onSurface,
+                        cursorColor = MaterialTheme.colorScheme.primary,
+                        focusedBorderColor = MaterialTheme.colorScheme.primary,
+                        unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+                        focusedContainerColor = MaterialTheme.colorScheme.surface,
+                        unfocusedContainerColor = MaterialTheme.colorScheme.surface
                     ),
                     keyboardOptions = KeyboardOptions(
                         capitalization = KeyboardCapitalization.Characters,
@@ -283,14 +290,14 @@ fun KfzaApp() {
                     textAlign = TextAlign.Center,
                     fontSize = 12.sp,
                     lineHeight = 12.sp,
-                    color = KfzaSecondaryText
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
                 Text(
                     text = stringResource(R.string.data_status),
                     textAlign = TextAlign.Center,
                     fontSize = 12.sp,
                     lineHeight = 12.sp,
-                    color = KfzaSecondaryText
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
             }
         }
@@ -299,12 +306,13 @@ fun KfzaApp() {
 
 @Composable
 private fun HamburgerIcon() {
+    val iconColor = MaterialTheme.colorScheme.onPrimaryContainer
     Canvas(modifier = Modifier.size(24.dp)) {
         val stroke = 2.dp.toPx()
         val start = size.width * 0.15f
         val end = size.width * 0.85f
         for (position in listOf(0.25f, 0.5f, 0.75f)) {
-            drawLine(Color.White, Offset(start, size.height * position), Offset(end, size.height * position), stroke, StrokeCap.Round)
+            drawLine(iconColor, Offset(start, size.height * position), Offset(end, size.height * position), stroke, StrokeCap.Round)
         }
     }
 }
@@ -312,6 +320,7 @@ private fun HamburgerIcon() {
 @Composable
 private fun SearchIcon() {
     val searchDescription = stringResource(R.string.search_content_description)
+    val iconColor = MaterialTheme.colorScheme.onSurfaceVariant
     Canvas(
         modifier = Modifier
             .size(24.dp)
@@ -319,13 +328,13 @@ private fun SearchIcon() {
     ) {
         val stroke = 2.dp.toPx()
         drawCircle(
-            color = KfzaSecondaryText,
+            color = iconColor,
             radius = 7.dp.toPx(),
             center = Offset(10.dp.toPx(), 10.dp.toPx()),
             style = Stroke(width = stroke)
         )
         drawLine(
-            color = KfzaSecondaryText,
+            color = iconColor,
             start = Offset(15.dp.toPx(), 15.dp.toPx()),
             end = Offset(20.dp.toPx(), 20.dp.toPx()),
             strokeWidth = stroke,
@@ -335,17 +344,24 @@ private fun SearchIcon() {
 }
 
 @Composable
-private fun InformationScreen(onBack: () -> Unit) {
+private fun InformationScreen(
+    onBack: () -> Unit,
+    onDocumentOpen: (OfflineDocument) -> Unit
+) {
+    val context = LocalContext.current
+    val versionName = remember(context) {
+        context.packageManager.getPackageInfo(context.packageName, 0).versionName.orEmpty()
+    }
     val backDescription = stringResource(R.string.back_content_description)
     Scaffold(
-        containerColor = ScreenBackground,
+        containerColor = MaterialTheme.colorScheme.background,
         topBar = {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
                     .statusBarsPadding()
                     .height(56.dp)
-                    .background(TopBarBlue)
+                    .background(MaterialTheme.colorScheme.primaryContainer)
             ) {
                 IconButton(
                     onClick = onBack,
@@ -354,15 +370,16 @@ private fun InformationScreen(onBack: () -> Unit) {
                         .padding(start = 8.dp)
                         .semantics { contentDescription = backDescription }
                 ) {
+                    val iconColor = MaterialTheme.colorScheme.onPrimaryContainer
                     Canvas(modifier = Modifier.size(24.dp)) {
-                        drawLine(Color.White, Offset(15.dp.toPx(), 4.dp.toPx()), Offset(7.dp.toPx(), 12.dp.toPx()), 2.dp.toPx(), StrokeCap.Round)
-                        drawLine(Color.White, Offset(7.dp.toPx(), 12.dp.toPx()), Offset(15.dp.toPx(), 20.dp.toPx()), 2.dp.toPx(), StrokeCap.Round)
+                        drawLine(iconColor, Offset(15.dp.toPx(), 4.dp.toPx()), Offset(7.dp.toPx(), 12.dp.toPx()), 2.dp.toPx(), StrokeCap.Round)
+                        drawLine(iconColor, Offset(7.dp.toPx(), 12.dp.toPx()), Offset(15.dp.toPx(), 20.dp.toPx()), 2.dp.toPx(), StrokeCap.Round)
                     }
                 }
                 Text(
                     text = stringResource(R.string.information_title),
                     modifier = Modifier.align(Alignment.Center),
-                    color = Color.White,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
                     fontWeight = FontWeight.SemiBold
                 )
             }
@@ -378,7 +395,7 @@ private fun InformationScreen(onBack: () -> Unit) {
         ) {
             Text(
                 text = stringResource(R.string.application_name),
-                color = KfzaPrimaryText,
+                color = MaterialTheme.colorScheme.onSurface,
                 fontSize = 16.sp,
                 lineHeight = 16.sp,
                 fontWeight = FontWeight.SemiBold,
@@ -387,7 +404,7 @@ private fun InformationScreen(onBack: () -> Unit) {
             Spacer(modifier = Modifier.height(12.dp))
             Text(
                 text = stringResource(R.string.developer_label),
-                color = KfzaSecondaryText,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 fontSize = 12.sp,
                 lineHeight = 12.sp,
                 fontWeight = FontWeight.Medium,
@@ -395,7 +412,7 @@ private fun InformationScreen(onBack: () -> Unit) {
             )
             Text(
                 text = stringResource(R.string.developer_name),
-                color = KfzaPrimaryText,
+                color = MaterialTheme.colorScheme.onSurface,
                 fontSize = 16.sp,
                 lineHeight = 16.sp,
                 fontWeight = FontWeight.SemiBold,
@@ -404,15 +421,15 @@ private fun InformationScreen(onBack: () -> Unit) {
             Spacer(modifier = Modifier.height(12.dp))
             Text(
                 text = stringResource(R.string.information_version_label),
-                color = KfzaSecondaryText,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 fontSize = 12.sp,
                 lineHeight = 12.sp,
                 fontWeight = FontWeight.Medium,
                 textAlign = TextAlign.Center
             )
             Text(
-                text = stringResource(R.string.information_version_value),
-                color = KfzaPrimaryText,
+                text = versionName,
+                color = MaterialTheme.colorScheme.onSurface,
                 fontSize = 16.sp,
                 lineHeight = 16.sp,
                 fontWeight = FontWeight.SemiBold,
@@ -421,7 +438,7 @@ private fun InformationScreen(onBack: () -> Unit) {
             Spacer(modifier = Modifier.height(12.dp))
             Text(
                 text = stringResource(R.string.information_data_status_label),
-                color = KfzaSecondaryText,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 fontSize = 12.sp,
                 lineHeight = 12.sp,
                 fontWeight = FontWeight.Medium,
@@ -429,7 +446,7 @@ private fun InformationScreen(onBack: () -> Unit) {
             )
             Text(
                 text = stringResource(R.string.information_data_status_value),
-                color = KfzaPrimaryText,
+                color = MaterialTheme.colorScheme.onSurface,
                 fontSize = 16.sp,
                 lineHeight = 16.sp,
                 fontWeight = FontWeight.SemiBold,
@@ -438,7 +455,7 @@ private fun InformationScreen(onBack: () -> Unit) {
             Spacer(modifier = Modifier.height(12.dp))
             Text(
                 text = stringResource(R.string.legal_notice),
-                color = KfzaSecondaryText,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 fontSize = 12.sp,
                 lineHeight = 12.sp,
                 fontWeight = FontWeight.Medium,
@@ -447,7 +464,7 @@ private fun InformationScreen(onBack: () -> Unit) {
             Spacer(modifier = Modifier.height(12.dp))
             Text(
                 text = stringResource(R.string.information_open_source_label),
-                color = KfzaSecondaryText,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 fontSize = 12.sp,
                 lineHeight = 12.sp,
                 fontWeight = FontWeight.Medium,
@@ -455,21 +472,80 @@ private fun InformationScreen(onBack: () -> Unit) {
             )
             Text(
                 text = stringResource(R.string.information_license_name),
-                color = KfzaPrimaryText,
+                color = MaterialTheme.colorScheme.onSurface,
                 fontSize = 16.sp,
                 lineHeight = 16.sp,
                 fontWeight = FontWeight.SemiBold,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                modifier = Modifier.clickable { onDocumentOpen(OfflineDocument.MIT_LICENSE) }
             )
             Text(
                 text = stringResource(R.string.information_third_party_notices),
-                color = KfzaPrimaryText,
+                color = MaterialTheme.colorScheme.onSurface,
                 fontSize = 16.sp,
                 lineHeight = 16.sp,
                 fontWeight = FontWeight.SemiBold,
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Center,
+                modifier = Modifier.clickable { onDocumentOpen(OfflineDocument.THIRD_PARTY_NOTICES) }
             )
         }
+    }
+}
+
+@Composable
+private fun OfflineDocumentScreen(
+    document: OfflineDocument,
+    onBack: () -> Unit
+) {
+    val context = LocalContext.current
+    val documentText = remember(context, document) {
+        context.assets.open(document.assetName).bufferedReader().use { it.readText() }
+    }
+    val backDescription = stringResource(R.string.back_content_description)
+
+    Scaffold(
+        containerColor = MaterialTheme.colorScheme.background,
+        topBar = {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .statusBarsPadding()
+                    .height(56.dp)
+                    .background(MaterialTheme.colorScheme.primaryContainer)
+            ) {
+                IconButton(
+                    onClick = onBack,
+                    modifier = Modifier
+                        .align(Alignment.CenterStart)
+                        .padding(start = 8.dp)
+                        .semantics { contentDescription = backDescription }
+                ) {
+                    val iconColor = MaterialTheme.colorScheme.onPrimaryContainer
+                    Canvas(modifier = Modifier.size(24.dp)) {
+                        drawLine(iconColor, Offset(15.dp.toPx(), 4.dp.toPx()), Offset(7.dp.toPx(), 12.dp.toPx()), 2.dp.toPx(), StrokeCap.Round)
+                        drawLine(iconColor, Offset(7.dp.toPx(), 12.dp.toPx()), Offset(15.dp.toPx(), 20.dp.toPx()), 2.dp.toPx(), StrokeCap.Round)
+                    }
+                }
+                Text(
+                    text = stringResource(document.titleRes),
+                    modifier = Modifier.align(Alignment.Center),
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    fontWeight = FontWeight.SemiBold
+                )
+            }
+        }
+    ) { contentPadding ->
+        Text(
+            text = documentText,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(contentPadding)
+                .verticalScroll(rememberScrollState())
+                .padding(horizontal = 24.dp, vertical = 24.dp),
+            color = MaterialTheme.colorScheme.onBackground,
+            fontSize = 14.sp,
+            lineHeight = 20.sp
+        )
     }
 }
 
@@ -518,7 +594,7 @@ private fun SearchResult(
     Card(
         modifier = modifier.fillMaxWidth(),
         shape = MainContentShape,
-        colors = CardDefaults.cardColors(containerColor = KfzaCardBackground),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
         Column(
@@ -528,14 +604,14 @@ private fun SearchResult(
         ) {
             ResultSection(
                 label = stringResource(R.string.result_authority),
-                values = if (isWaiting) listOf(stringResource(R.string.no_result_value)) else result?.authorityNames ?: listOf(stringResource(R.string.no_result_value))
+                values = if (isWaiting) listOf(stringResource(R.string.no_result)) else result?.authorityNames ?: listOf(stringResource(R.string.no_result_value))
             )
-            HorizontalDivider(thickness = 1.dp, color = KfzaDivider)
+            HorizontalDivider(thickness = 1.dp, color = MaterialTheme.colorScheme.outlineVariant)
             ResultSection(
                 label = stringResource(R.string.result_state),
                 values = if (isWaiting) listOf(stringResource(R.string.no_result_value)) else result?.regions ?: listOf(stringResource(R.string.no_result_value))
             )
-            HorizontalDivider(thickness = 1.dp, color = KfzaDivider)
+            HorizontalDivider(thickness = 1.dp, color = MaterialTheme.colorScheme.outlineVariant)
             ResultSection(
                 label = stringResource(R.string.result_type),
                 values = if (isWaiting) listOf(stringResource(R.string.no_result_value)) else typeLabels(result)
@@ -560,7 +636,7 @@ private fun ResultSection(
             text = label,
             fontSize = 14.sp,
             fontWeight = FontWeight.Medium,
-            color = KfzaSecondaryText
+            color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         values.forEachIndexed { index, value ->
             Text(
@@ -568,7 +644,7 @@ private fun ResultSection(
                 fontSize = 19.sp,
                 lineHeight = 19.sp,
                 fontWeight = FontWeight.SemiBold,
-                color = KfzaPrimaryText
+                color = MaterialTheme.colorScheme.onSurface
             )
             if (index < values.lastIndex) Spacer(modifier = Modifier.height(8.dp))
         }
