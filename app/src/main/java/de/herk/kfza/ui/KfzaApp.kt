@@ -7,14 +7,15 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredHeight
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.widthIn
@@ -45,13 +46,20 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Outline
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.StrokeCap
-import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.boundsInRoot
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.input.pointer.PointerEventPass
@@ -60,6 +68,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.unit.TextUnit
 import de.herk.kfza.R
 import de.herk.kfza.data.model.GeographicalAuthorityType
 import de.herk.kfza.data.model.PlateEntry
@@ -77,7 +89,27 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.shape.RoundedCornerShape
 
-private val MainContentShape = RoundedCornerShape(12.dp)
+private const val REFERENCE_CONTENT_WIDTH_PX = 1080f
+private const val MIN_CONTENT_SCALE = 0.65f
+
+private data class KfzaScreenMetrics(
+    val scale: Float,
+) {
+    fun dp(value: Float) = (value * scale).dp
+    fun sp(value: Float): TextUnit = (value * scale).sp
+}
+
+@Composable
+private fun rememberKfzaScreenMetrics(maxWidth: Dp): KfzaScreenMetrics {
+    val density = LocalDensity.current.density
+    val referenceWidthDp = REFERENCE_CONTENT_WIDTH_PX / density
+    return remember(maxWidth, density) {
+        KfzaScreenMetrics(
+            scale = (maxWidth.value / referenceWidthDp)
+                .coerceIn(MIN_CONTENT_SCALE, 1f)
+        )
+    }
+}
 
 private enum class OfflineDocument(val titleRes: Int, val assetName: String) {
     MIT_LICENSE(R.string.information_license_name, "LICENSE"),
@@ -106,7 +138,6 @@ fun KfzaApp() {
         }
     }
     var showInformation by remember { mutableStateOf(false) }
-    val menuDescription = stringResource(R.string.menu_content_description)
 
     BackHandler(enabled = showInformation || openDocument != null) {
         if (openDocument != null) {
@@ -164,179 +195,279 @@ fun KfzaApp() {
                 }
             },
         containerColor = MaterialTheme.colorScheme.background,
-        topBar = {
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .statusBarsPadding()
-                    .height(56.dp)
-                    .background(MaterialTheme.colorScheme.primaryContainer)
-            ) {
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .widthIn(max = 448.dp)
-                        .align(androidx.compose.ui.Alignment.Center)
-                        .padding(horizontal = 24.dp)
-                ) {
-                    Text(
-                        text = stringResource(R.string.header_label),
-                        fontWeight = FontWeight.SemiBold,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
-                        modifier = Modifier.align(androidx.compose.ui.Alignment.CenterStart)
-                    )
-                }
-                Image(
-                    painter = painterResource(R.drawable.nationality_a),
-                    contentDescription = null,
-                    modifier = Modifier
-                        .align(Alignment.Center)
-                        .size(width = 72.dp, height = 47.dp)
-                )
-                IconButton(
-                    onClick = { showInformation = true },
-                    modifier = Modifier
-                        .align(Alignment.CenterEnd)
-                        .padding(end = 8.dp)
-                        .semantics { contentDescription = menuDescription }
-                ) {
-                    HamburgerIcon()
-                }
-            }
-        }
     ) { contentPadding ->
-        Column(
+        BoxWithConstraints(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(contentPadding)
-                .navigationBarsPadding()
-                .padding(horizontal = 24.dp),
-            verticalArrangement = Arrangement.spacedBy(0.dp)
         ) {
+            val metrics = rememberKfzaScreenMetrics(maxWidth)
             Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth()
-                    .verticalScroll(rememberScrollState())
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.spacedBy(0.dp)
             ) {
-                Spacer(modifier = Modifier.height(32.dp))
+                HeroHeader(
+                    metrics = metrics,
+                    onInfoClick = { showInformation = true }
+                )
+                BoxWithConstraints(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .weight(1f)
+                        .background(MaterialTheme.colorScheme.background)
+                ) {
+                val scrollViewportHeight = maxHeight
+                val surfaceOverlap = metrics.dp(38f)
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .requiredHeight(scrollViewportHeight + surfaceOverlap)
+                        .offset(y = -surfaceOverlap)
+                        .clip(CurvedContentSurfaceShape(scale = metrics.scale))
+                        .background(MaterialTheme.colorScheme.background)
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(scrollViewportHeight)
+                            .offset(y = metrics.dp(26f))
+                            .clip(
+                                CurvedContentSurfaceShape(
+                                    scale = metrics.scale,
+                                    contentOffsetDp = 26f
+                                )
+                            )
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(scrollViewportHeight)
+                                .verticalScroll(rememberScrollState())
+                                .padding(
+                                    start = metrics.dp(24f),
+                                    top = metrics.dp(20f),
+                                    end = metrics.dp(24f),
+                                    bottom = metrics.dp(32f)
+                                )
+                        ) {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .widthIn(max = metrics.dp(400f))
+                                    .align(Alignment.CenterHorizontally)
+                            ) {
+                                Text(
+                                    text = stringResource(R.string.license_plate_input),
+                                    fontSize = metrics.sp(16f),
+                                    fontWeight = FontWeight.Medium,
+                                    color = MaterialTheme.colorScheme.onSurface,
+                                    modifier = Modifier.padding(top = metrics.dp(2f))
+                                )
+                                Spacer(modifier = Modifier.height(metrics.dp(6f)))
+                                OutlinedTextField(
+                                    value = query,
+                                    onValueChange = { value ->
+                                        val candidate = IdentifierNormalizer.uppercaseForDisplay(value)
+                                        query = candidate
+                                        result = repository.findByIdentifier(candidate)
+                                    },
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(metrics.dp(56f))
+                                        .focusRequester(focusRequester)
+                                        .onGloballyPositioned { inputBoundsInRoot = it.boundsInRoot() },
+                                    singleLine = true,
+                                    shape = RoundedCornerShape(metrics.dp(12f)),
+                                    trailingIcon = { SearchIcon(metrics) },
+                                    textStyle = MaterialTheme.typography.bodyLarge.copy(
+                                        fontSize = metrics.sp(18f),
+                                        color = MaterialTheme.colorScheme.onSurface,
+                                        fontWeight = FontWeight.SemiBold
+                                    ),
+                                    colors = OutlinedTextFieldDefaults.colors(
+                                        focusedTextColor = MaterialTheme.colorScheme.onSurface,
+                                        unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
+                                        focusedLabelColor = MaterialTheme.colorScheme.onSurface,
+                                        unfocusedLabelColor = MaterialTheme.colorScheme.onSurface,
+                                        cursorColor = MaterialTheme.colorScheme.primary,
+                                        focusedBorderColor = MaterialTheme.colorScheme.primary,
+                                        unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+                                        focusedContainerColor = MaterialTheme.colorScheme.surface,
+                                        unfocusedContainerColor = MaterialTheme.colorScheme.surface
+                                    ),
+                                    keyboardOptions = KeyboardOptions(
+                                        capitalization = KeyboardCapitalization.Characters,
+                                        keyboardType = KeyboardType.Text,
+                                        imeAction = ImeAction.Done
+                                    ),
+                                    keyboardActions = KeyboardActions(
+                                        onDone = { focusManager.clearFocus() }
+                                    )
+                                )
+                                Spacer(modifier = Modifier.height(metrics.dp(32f)))
+                                SearchResult(
+                                    result = result,
+                                    isWaiting = query.isEmpty() || !matcher.match(query).isExact,
+                                    metrics = metrics,
+                                    modifier = Modifier.fillMaxWidth()
+                                )
+                            }
+                        }
+                    }
+                }
+            }
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .widthIn(max = 400.dp)
-                        .align(Alignment.CenterHorizontally)
+                        .padding(
+                            top = metrics.dp(8f),
+                            bottom = metrics.dp(12f)
+                        ),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(0.dp)
                 ) {
-                Text(
-                    text = stringResource(R.string.license_plate_input),
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Medium,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    modifier = Modifier.padding(top = 2.dp)
-                )
-                Spacer(modifier = Modifier.height(6.dp))
-                OutlinedTextField(
-                    value = query,
-                    onValueChange = { value ->
-                        val candidate = IdentifierNormalizer.uppercaseForDisplay(value)
-                        query = candidate
-                        result = repository.findByIdentifier(candidate)
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .heightIn(min = 52.dp)
-                        .focusRequester(focusRequester)
-                        .onGloballyPositioned { inputBoundsInRoot = it.boundsInRoot() },
-                    singleLine = true,
-                    shape = MainContentShape,
-                    trailingIcon = { SearchIcon() },
-                    textStyle = MaterialTheme.typography.bodyLarge.copy(
-                        fontSize = 18.sp,
-                        color = MaterialTheme.colorScheme.onSurface,
-                        fontWeight = FontWeight.SemiBold
-                    ),
-                    colors = OutlinedTextFieldDefaults.colors(
-                        focusedTextColor = MaterialTheme.colorScheme.onSurface,
-                        unfocusedTextColor = MaterialTheme.colorScheme.onSurface,
-                        focusedLabelColor = MaterialTheme.colorScheme.onSurface,
-                        unfocusedLabelColor = MaterialTheme.colorScheme.onSurface,
-                        cursorColor = MaterialTheme.colorScheme.primary,
-                        focusedBorderColor = MaterialTheme.colorScheme.primary,
-                        unfocusedBorderColor = MaterialTheme.colorScheme.outline,
-                        focusedContainerColor = MaterialTheme.colorScheme.surface,
-                        unfocusedContainerColor = MaterialTheme.colorScheme.surface
-                    ),
-                    keyboardOptions = KeyboardOptions(
-                        capitalization = KeyboardCapitalization.Characters,
-                        keyboardType = KeyboardType.Text,
-                        imeAction = ImeAction.Done
-                    ),
-                    keyboardActions = KeyboardActions(
-                        onDone = { focusManager.clearFocus() }
+                    Text(
+                        text = stringResource(R.string.legal_notice),
+                        textAlign = TextAlign.Center,
+                        fontSize = metrics.sp(12f),
+                        lineHeight = metrics.sp(12f),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Text(
+                        text = stringResource(R.string.data_status),
+                        textAlign = TextAlign.Center,
+                        fontSize = metrics.sp(12f),
+                        lineHeight = metrics.sp(12f),
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
+        }
+    }
+}
+}
+
+@Composable
+private fun HeroHeader(
+    metrics: KfzaScreenMetrics,
+    onInfoClick: () -> Unit
+) {
+    // Keep the existing Austrian identity asset available; the current header renders only the landscape.
+    // R.drawable.nationality_a
+    val menuDescription = stringResource(R.string.menu_content_description)
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(metrics.dp(204f))
+    ) {
+        Image(
+            painter = painterResource(R.drawable.austrian_landscape_header),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.Crop,
+            alignment = Alignment.TopCenter
+        )
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    Brush.verticalGradient(
+                        colors = listOf(
+                            Color.Black.copy(alpha = 0.34f),
+                            Color.Black.copy(alpha = 0.10f),
+                            Color.Black.copy(alpha = 0.52f)
+                        )
                     )
                 )
-                Spacer(modifier = Modifier.height(32.dp))
-                    SearchResult(result = result, isWaiting = query.isEmpty() || !matcher.match(query).isExact, modifier = Modifier.fillMaxWidth())
-                }
-            }
-            Column(
+        )
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(metrics.dp(64f))
+        ) {
+            IconButton(
+                onClick = onInfoClick,
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(top = 8.dp, bottom = 12.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(0.dp)
+                    .align(Alignment.TopEnd)
+                    .padding(top = metrics.dp(4f), end = metrics.dp(12f))
+                    .size(metrics.dp(48f))
+                    .semantics { contentDescription = menuDescription }
             ) {
-                Text(
-                    text = stringResource(R.string.legal_notice),
-                    textAlign = TextAlign.Center,
-                    fontSize = 12.sp,
-                    lineHeight = 12.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
-                Text(
-                    text = stringResource(R.string.data_status),
-                    textAlign = TextAlign.Center,
-                    fontSize = 12.sp,
-                    lineHeight = 12.sp,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
-                )
+                HamburgerIcon(metrics)
             }
         }
     }
 }
 
+private class CurvedContentSurfaceShape(
+    private val scale: Float,
+    private val contentOffsetDp: Float = 0f,
+) : Shape {
+    override fun createOutline(
+        size: Size,
+        layoutDirection: LayoutDirection,
+        density: Density,
+    ): Outline {
+        val waveHeight = with(density) { (55f * scale).dp.toPx() }
+        val contentOffset = with(density) { (contentOffsetDp * scale).dp.toPx() }
+        fun waveY(fraction: Float) = waveHeight * fraction - contentOffset
+        val path = Path().apply {
+            moveTo(0f, waveY(0.12f))
+            cubicTo(
+                size.width * 0.16f,
+                waveY(0.04f),
+                size.width * 0.34f,
+                waveY(0.60f),
+                size.width * 0.60f,
+                waveY(0.65f),
+            )
+            cubicTo(
+                size.width * 0.76f,
+                waveY(0.68f),
+                size.width * 0.91f,
+                waveY(0.51f),
+                size.width,
+                waveY(0.30f),
+            )
+            lineTo(size.width, size.height)
+            lineTo(0f, size.height)
+            close()
+        }
+        return Outline.Generic(path)
+    }
+}
+
 @Composable
-private fun HamburgerIcon() {
-    val iconColor = MaterialTheme.colorScheme.onPrimaryContainer
-    Canvas(modifier = Modifier.size(24.dp)) {
-        val stroke = 2.dp.toPx()
+private fun HamburgerIcon(metrics: KfzaScreenMetrics) {
+    Canvas(modifier = Modifier.size(metrics.dp(24f))) {
+        val stroke = metrics.dp(2f).toPx()
         val start = size.width * 0.15f
         val end = size.width * 0.85f
         for (position in listOf(0.25f, 0.5f, 0.75f)) {
-            drawLine(iconColor, Offset(start, size.height * position), Offset(end, size.height * position), stroke, StrokeCap.Round)
+            drawLine(Color.White, Offset(start, size.height * position), Offset(end, size.height * position), stroke, StrokeCap.Round)
         }
     }
 }
 
 @Composable
-private fun SearchIcon() {
+private fun SearchIcon(metrics: KfzaScreenMetrics) {
     val searchDescription = stringResource(R.string.search_content_description)
     val iconColor = MaterialTheme.colorScheme.onSurfaceVariant
     Canvas(
         modifier = Modifier
-            .size(24.dp)
+            .size(metrics.dp(24f))
             .semantics { contentDescription = searchDescription }
     ) {
-        val stroke = 2.dp.toPx()
+        val stroke = metrics.dp(2f).toPx()
         drawCircle(
             color = iconColor,
-            radius = 7.dp.toPx(),
-            center = Offset(10.dp.toPx(), 10.dp.toPx()),
+            radius = metrics.dp(7f).toPx(),
+            center = Offset(metrics.dp(10f).toPx(), metrics.dp(10f).toPx()),
             style = Stroke(width = stroke)
         )
         drawLine(
             color = iconColor,
-            start = Offset(15.dp.toPx(), 15.dp.toPx()),
-            end = Offset(20.dp.toPx(), 20.dp.toPx()),
+            start = Offset(metrics.dp(15f).toPx(), metrics.dp(15f).toPx()),
+            end = Offset(metrics.dp(20f).toPx(), metrics.dp(20f).toPx()),
             strokeWidth = stroke,
             cap = StrokeCap.Round
         )
@@ -589,32 +720,36 @@ private fun plateTypeLabel(type: PlateType): String = when (type) {
 private fun SearchResult(
     result: PlateEntry?,
     isWaiting: Boolean,
+    metrics: KfzaScreenMetrics,
     modifier: Modifier = Modifier
 ) {
     Card(
         modifier = modifier.fillMaxWidth(),
-        shape = MainContentShape,
+        shape = RoundedCornerShape(metrics.dp(12f)),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = metrics.dp(2f))
     ) {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp)
+                .padding(horizontal = metrics.dp(16f))
         ) {
             ResultSection(
                 label = stringResource(R.string.result_authority),
-                values = if (isWaiting) listOf(stringResource(R.string.no_result)) else result?.authorityNames ?: listOf(stringResource(R.string.no_result_value))
+                values = if (isWaiting) listOf(stringResource(R.string.no_result)) else result?.authorityNames ?: listOf(stringResource(R.string.no_result_value)),
+                metrics = metrics
             )
-            HorizontalDivider(thickness = 1.dp, color = MaterialTheme.colorScheme.outlineVariant)
+            HorizontalDivider(thickness = metrics.dp(1f), color = MaterialTheme.colorScheme.outlineVariant)
             ResultSection(
                 label = stringResource(R.string.result_state),
-                values = if (isWaiting) listOf(stringResource(R.string.no_result_value)) else result?.regions ?: listOf(stringResource(R.string.no_result_value))
+                values = if (isWaiting) listOf(stringResource(R.string.no_result_value)) else result?.regions ?: listOf(stringResource(R.string.no_result_value)),
+                metrics = metrics
             )
-            HorizontalDivider(thickness = 1.dp, color = MaterialTheme.colorScheme.outlineVariant)
+            HorizontalDivider(thickness = metrics.dp(1f), color = MaterialTheme.colorScheme.outlineVariant)
             ResultSection(
                 label = stringResource(R.string.result_type),
-                values = if (isWaiting) listOf(stringResource(R.string.no_result_value)) else typeLabels(result)
+                values = if (isWaiting) listOf(stringResource(R.string.no_result_value)) else typeLabels(result),
+                metrics = metrics
             )
         }
     }
@@ -624,29 +759,30 @@ private fun SearchResult(
 private fun ResultSection(
     label: String,
     values: List<String>,
+    metrics: KfzaScreenMetrics,
     modifier: Modifier = Modifier
 ) {
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .padding(vertical = 16.dp),
-        verticalArrangement = Arrangement.spacedBy(1.dp)
+            .padding(vertical = metrics.dp(16f)),
+        verticalArrangement = Arrangement.spacedBy(metrics.dp(1f))
     ) {
         Text(
             text = label,
-            fontSize = 14.sp,
+            fontSize = metrics.sp(14f),
             fontWeight = FontWeight.Medium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
         values.forEachIndexed { index, value ->
             Text(
                 text = value,
-                fontSize = 19.sp,
-                lineHeight = 19.sp,
+                fontSize = metrics.sp(19f),
+                lineHeight = metrics.sp(19f),
                 fontWeight = FontWeight.SemiBold,
                 color = MaterialTheme.colorScheme.onSurface
             )
-            if (index < values.lastIndex) Spacer(modifier = Modifier.height(8.dp))
+            if (index < values.lastIndex) Spacer(modifier = Modifier.height(metrics.dp(8f)))
         }
     }
 }

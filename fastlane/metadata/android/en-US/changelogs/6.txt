@@ -1,0 +1,3 @@
+New Austrian landscape header.
+Curved transition between the header and the content.
+Improved adaptation to different screen sizes.

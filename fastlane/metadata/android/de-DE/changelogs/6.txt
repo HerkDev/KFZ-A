@@ -1,0 +1,3 @@
+Neuer österreichischer Landschafts-Header.
+Geschwungener Übergang zwischen Header und Inhalt.
+Verbesserte Anpassung an unterschiedliche Bildschirmgrößen.

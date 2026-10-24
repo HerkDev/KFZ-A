@@ -1,5 +1,11 @@
 # KFZ-A F-Droid-Metadaten
 
+## Version 1.0.5 / VersionCode 6
+
+Die Release-Metadaten für Version 1.0.5 verwenden den später anzulegenden Tag `v1.0.5` als Build-Referenz. Die Changelogs beschreiben ausschließlich den neuen österreichischen Landschafts-Header, den geschwungenen Übergang zwischen Header und Inhalt sowie die verbesserte Anpassung an unterschiedliche Bildschirmgrößen.
+
+Die beiden unabhängigen unsignierten Clean-Release-APKs wurden mit Java 21 im Clone gebaut. Beide sind 9,803,442 Bytes groß und haben den identischen SHA-256-Hash `8E0861374643E8C157F1933BA772B6F0D7B7052A297273D41904713541CCDE31`.
+
 ## Metadaten
 
 Die vollständigen deutschen und englischen F-Droid-Metadaten liegen unter:

@@ -1,0 +1,50 @@
+Categories:
+  - Science & Education
+License: MIT
+AuthorName: HerkDev
+SourceCode: https://github.com/HerkDev/KFZ-A
+IssueTracker: https://github.com/HerkDev/KFZ-A/issues
+
+AutoName: KFZ-A
+
+RepoType: git
+Repo: https://github.com/HerkDev/KFZ-A.git
+Binaries: https://github.com/HerkDev/KFZ-A/releases/download/v%v/KFZ-A-%v.apk
+
+Builds:
+  - versionName: 1.0.5
+    versionCode: 6
+    commit: v1.0.5
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.3.0
+    postbuild:
+      - $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+        'assets/data/*.json' 'res/*.svg'
+      - mv $$OUT$$ unaligned.apk
+      - $$reproducible-apk-tools$$/zipalign.py --page-size 16 --pad-like-apksigner
+        --replace unaligned.apk $$OUT$$
+
+  - versionName: 1.0.1
+    versionCode: 2
+    commit: 02f4a7be2c79f9aff1282e794fbf59f23e2431a8
+    subdir: app
+    gradle:
+      - yes
+    srclibs:
+      - reproducible-apk-tools@v0.3.0
+    postbuild:
+      - $$reproducible-apk-tools$$/inplace-fix.py --zipalign fix-newlines $$OUT$$
+        'assets/data/*.json' 'res/*.svg'
+      - mv $$OUT$$ unaligned.apk
+      - $$reproducible-apk-tools$$/zipalign.py --page-size 16 --pad-like-apksigner
+        --replace unaligned.apk $$OUT$$
+
+AllowedAPKSigningKeys: 7b9a30784de829ef3424c9eb950af3db117a0328a27777e88a56f61c8faccd17
+
+AutoUpdateMode: Version
+UpdateCheckMode: Tags
+CurrentVersion: 1.0.5
+CurrentVersionCode: 6
